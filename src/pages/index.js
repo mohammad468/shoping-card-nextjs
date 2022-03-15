@@ -1,7 +1,14 @@
+import MyNav from "../components/MyNav";
+import Store from "../components/Store";
+import { Provider } from "react-redux";
+
+import store from "../redux/store";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Provider store={store}>
+      <MyNav />
+      <Store />
+    </Provider>
   );
 }
