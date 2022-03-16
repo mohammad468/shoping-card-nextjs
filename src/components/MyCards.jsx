@@ -6,7 +6,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../redux/products/productsAction";
 
 const MyCards = () => {
-  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
   const productsState = useSelector((state) => state.productsState);
 

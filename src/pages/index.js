@@ -1,11 +1,14 @@
 import MyNav from "../components/MyNav";
-import Store from "../components/Store";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
       <MyNav />
-      <Store />
+      <h1>homePage</h1>
+      <Link href="/products">
+        <a>go to products</a>
+      </Link>
     </>
   );
 }

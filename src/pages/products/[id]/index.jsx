@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import Link from "next/Link";
 import { useRouter } from "next/router";
 
-import { useSelector, useDispatch, Provider } from "react-redux";
-import { fetchProducts } from "../../redux/products/productsAction";
-import store from "../../redux/store";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts } from "../../../redux/products/productsAction";
 
 const ProductDetails = () => {
   const dispatch = useDispatch();
@@ -12,7 +11,7 @@ const ProductDetails = () => {
   const router = useRouter();
   const routId = router.query.id;
   const product = productsState.products[routId - 1];
-  // console.log(routId);
+  console.log(routId);
   // console.log(productsState.products[routId - 1]);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const ProductDetails = () => {
       <h1>{product.description}</h1>
       <h1>{product.image}</h1>
       <h1>{product.price}</h1>
-      <Link href="/">
+      <Link href="/products">
         <a>go to home</a>
       </Link>
     </div>

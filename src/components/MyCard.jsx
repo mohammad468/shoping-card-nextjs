@@ -14,7 +14,7 @@ const MyCard = (props) => {
       />
       <Card.Body>
         <Card.Title>
-          <Link href={`details/${props.dynamicRout}`}>
+          <Link href={`products/${props.dynamicRout}`}>
             <a>Go To Details</a>
           </Link>
         </Card.Title>
