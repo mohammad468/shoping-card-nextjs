@@ -1,11 +1,12 @@
 import React from "react";
 import MyNav from "../../../components/MyNav";
+import MyWomensClothing from "../../../components/womens-clothing/MyWomensClothing";
 
 const index = () => {
   return (
     <div>
       <MyNav />
-      <h1>womens-clothing</h1>
+      <MyWomensClothing />
     </div>
   );
 };

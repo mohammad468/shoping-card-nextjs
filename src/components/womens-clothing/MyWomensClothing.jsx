@@ -4,30 +4,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/products/productsAction";
 import MyCard from "../MyCard";
 
-const MyMensClothing = () => {
-  const dispatch = useDispatch();
-  const productsState = useSelector((state) => state.productsState);
+const MyWomensClothing = () => {
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
+    const dispatch = useDispatch();
+    const productsState = useSelector((state) => state.productsState);
 
-  let MensClothingProducts = [];
+    useEffect(() => {
+      dispatch(fetchProducts());
+    }, []);
 
-  productsState.products.map((product) => {
-    if (product.category == "women's clothing") {
-      MensClothingProducts.push(product);
-    }
-  });
+    let MensClothingProducts = [];
 
-  console.log(MensClothingProducts);
+    productsState.products.map((product) => {
+      if (product.category == "men's clothing") {
+        MensClothingProducts.push(product);
+      }
+    });
 
-  // shorten for short title for 2 word
-  const shorten = (title) => {
-    const spiltedTitle = title.split(" ");
-    const newTitle = `${spiltedTitle[0]} ${spiltedTitle[1]} ${spiltedTitle[2]}`;
-    return newTitle;
-  };
+    console.log(MensClothingProducts);
+
+    // shorten for short title for 2 word
+    const shorten = (title) => {
+      const spiltedTitle = title.split(" ");
+      const newTitle = `${spiltedTitle[0]} ${spiltedTitle[1]} ${spiltedTitle[2]}`;
+      return newTitle;
+    };
+
 
   return (
     <Container className="d-flex justify-content-center">
@@ -47,4 +49,4 @@ const MyMensClothing = () => {
   );
 };
 
-export default MyMensClothing;
+export default MyWomensClothing;
