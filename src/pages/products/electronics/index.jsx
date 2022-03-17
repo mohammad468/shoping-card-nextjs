@@ -1,13 +1,36 @@
-import React from 'react';
-import MyNav from '../../../components/MyNav';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import MyNav from "../../../components/MyNav";
+import { fetchProducts } from "../../../redux/products/productsAction";
 
 const index = () => {
-    return (
-      <div>
-        <MyNav />
-        <h1>electronics</h1>
-      </div>
-    );
+  const dispatch = useDispatch();
+  const productsState = useSelector((state) => state.productsState);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  let electronicsProducts = [];
+
+  productsState.products.map((product) => {
+    if (product.category == "electronics") {
+      electronicsProducts.push(product);
+    }
+  });
+
+  console.log(electronicsProducts);
+
+  return (
+    <div>
+      <MyNav />
+      {electronicsProducts ? (
+        electronicsProducts.map((product) => <h1>{product.title}</h1>)
+      ) : (
+        <h1>Loading...</h1>
+      )}
+    </div>
+  );
 };
 
 export default index;
