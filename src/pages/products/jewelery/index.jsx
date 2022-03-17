@@ -1,13 +1,14 @@
-import React from 'react';
-import MyNav from '../../../components/MyNav';
+import React from "react";
+import MyJeweleryCards from "../../../components/jewelery/MyJeweleryCards";
+import MyNav from "../../../components/MyNav";
 
 const index = () => {
-    return (
-      <div>
-        <MyNav />
-        <h1>jewelery</h1>
-      </div>
-    );
+  return (
+    <>
+      <MyNav />
+      <MyJeweleryCards />
+    </>
+  );
 };
 
 export default index;
