@@ -3,9 +3,9 @@ import MyCards from "./MyCards";
 
 const Store = () => {
   return (
-    <div>
+    <>
       <MyCards />
-    </div>
+    </>
   );
 };
 

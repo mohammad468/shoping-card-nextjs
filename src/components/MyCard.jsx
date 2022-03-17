@@ -13,16 +13,15 @@ const MyCard = (props) => {
         className="my-2 align-self-center"
       />
       <Card.Body>
-        <Card.Title>
+        <Card.Title className="text-center fw-bolder mb-3">{`${props.price} $`}</Card.Title>
+        <Card.Text className="d-flex justify-content-between align-items-center">
           <Link href={`products/${props.dynamicRout}`}>
-            <a>Go To Details</a>
+            <a className="text-decoration-none">Go To Details</a>
           </Link>
-        </Card.Title>
-        <Card.Text>{`${props.price} $`}</Card.Text>
+          <Button variant="primary">Add to Store</Button>
+        </Card.Text>
       </Card.Body>
-      <Button variant="primary" className="align-self-center mb-3">
-        Add to Store
-      </Button>
+
       <Card.Footer>
         <Badge bg="secondary">{props.category}</Badge>
       </Card.Footer>

@@ -19,6 +19,10 @@ const MyNav = () => {
   let activeHomeClass;
   let activeProductClass;
   let activeStoreClass;
+  let activeProductsMensClothing;
+  let activeProductsWomenClothing;
+  let activeProductsJewelery;
+  let activeProductsElectronics;
 
   if (router.pathname == "/") {
     activeHomeClass = "nav-link active";
@@ -36,6 +40,30 @@ const MyNav = () => {
     activeStoreClass = "nav-link active";
   } else {
     activeStoreClass = "nav-link";
+  }
+
+  if (router.pathname == "/products/mens-clothing") {
+    activeProductsMensClothing = "dropdown-item active";
+  } else {
+    activeProductsMensClothing = "dropdown-item";
+  }
+
+  if (router.pathname == "/products/womens-clothing") {
+    activeProductsWomenClothing = "dropdown-item active";
+  } else {
+    activeProductsWomenClothing = "dropdown-item";
+  }
+
+  if (router.pathname == "/products/jewelery") {
+    activeProductsJewelery = "dropdown-item active";
+  } else {
+    activeProductsJewelery = "dropdown-item";
+  }
+
+  if (router.pathname == "/products/electronics") {
+    activeProductsElectronics = "dropdown-item active";
+  } else {
+    activeProductsElectronics = "dropdown-item";
   }
 
   return (
@@ -59,16 +87,18 @@ const MyNav = () => {
               </a>
             </Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
-                Men's clothing
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">
-                Women's clothing
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Jewelery</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                Electronics
-              </NavDropdown.Item>
+              <Link href="/products/mens-clothing">
+                <a className={activeProductsMensClothing}>Men's clothing</a>
+              </Link>
+              <Link href="/products/womens-clothing">
+                <a className={activeProductsWomenClothing}>Women's clothing</a>
+              </Link>
+              <Link href="/products/jewelery">
+                <a className={activeProductsJewelery}>Jewelery</a>
+              </Link>
+              <Link href="/products/electronics">
+                <a className={activeProductsElectronics}>Electronics</a>
+              </Link>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
