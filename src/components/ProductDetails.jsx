@@ -13,7 +13,6 @@ const ProductDetails = () => {
   const routId = router.query.id;
   const product = productsState.products[routId - 1];
   console.log(routId);
-  // console.log(productsState.products[routId - 1]);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -35,16 +34,13 @@ const ProductDetails = () => {
           </div>
           <h5 className="justify-self-end mt-5">
             <Link href="/products">
-              <a className="text-decoration-none text-uppercase">go to Products</a>
+              <a className="text-decoration-none text-uppercase">
+                go to Products
+              </a>
             </Link>
           </h5>
         </Col>
       </Row>
-      {/* <h1>{product.title}</h1>
-      <h1>{product.category}</h1>
-      <h1>{product.description}</h1>
-      <h1>{product.image}</h1>
-      <h1>{product.price}</h1> */}
     </Container>
   );
 };
