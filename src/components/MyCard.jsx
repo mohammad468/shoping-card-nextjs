@@ -15,7 +15,7 @@ const MyCard = (props) => {
       <Card.Body>
         <Card.Title className="text-center fw-bolder mb-3">{`${props.price} $`}</Card.Title>
         <Card.Text className="d-flex justify-content-between align-items-center">
-          <Link href={`products/${props.dynamicRout}`}>
+          <Link href={`${props.dynamicRout}`}>
             <a className="text-decoration-none">Go To Details</a>
           </Link>
           <Button variant="primary">Add to Store</Button>

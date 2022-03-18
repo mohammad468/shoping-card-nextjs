@@ -10,7 +10,7 @@ const MyCards = () => {
   const productsState = useSelector((state) => state.productsState);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    if (!productsState.products.length) dispatch(fetchProducts());
   }, []);
 
   // shorten for short title for 2 word
@@ -28,7 +28,7 @@ const MyCards = () => {
             key={product.id}
             myTitle={shorten(product.title)}
             image={product.image}
-            dynamicRout={product.id}
+            dynamicRout={`products/${product.id}`}
             price={product.price}
             category={product.category}
           />

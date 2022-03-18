@@ -9,7 +9,7 @@ const MyJeweleryCards = () => {
   const productsState = useSelector((state) => state.productsState);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    if (!productsState.products.length) dispatch(fetchProducts());
   }, []);
 
   let JeweleryProducts = [];
