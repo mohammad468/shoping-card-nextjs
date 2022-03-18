@@ -31,6 +31,8 @@ const MyCards = () => {
             dynamicRout={`products/${product.id}`}
             price={product.price}
             category={product.category}
+            productId={product.id}
+            productData={product}
           />
         ))}
       </Row>

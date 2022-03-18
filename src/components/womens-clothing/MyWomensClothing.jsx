@@ -5,31 +5,29 @@ import { fetchProducts } from "../../redux/products/productsAction";
 import MyCard from "../MyCard";
 
 const MyWomensClothing = () => {
+  const dispatch = useDispatch();
+  const productsState = useSelector((state) => state.productsState);
 
-    const dispatch = useDispatch();
-    const productsState = useSelector((state) => state.productsState);
+  useEffect(() => {
+    if (!productsState.products.length) dispatch(fetchProducts());
+  }, []);
 
-    useEffect(() => {
-      if (!productsState.products.length) dispatch(fetchProducts());
-    }, []);
+  let MensClothingProducts = [];
 
-    let MensClothingProducts = [];
+  productsState.products.map((product) => {
+    if (product.category == "men's clothing") {
+      MensClothingProducts.push(product);
+    }
+  });
 
-    productsState.products.map((product) => {
-      if (product.category == "men's clothing") {
-        MensClothingProducts.push(product);
-      }
-    });
+  console.log(MensClothingProducts);
 
-    console.log(MensClothingProducts);
-
-    // shorten for short title for 2 word
-    const shorten = (title) => {
-      const spiltedTitle = title.split(" ");
-      const newTitle = `${spiltedTitle[0]} ${spiltedTitle[1]} ${spiltedTitle[2]}`;
-      return newTitle;
-    };
-
+  // shorten for short title for 2 word
+  const shorten = (title) => {
+    const spiltedTitle = title.split(" ");
+    const newTitle = `${spiltedTitle[0]} ${spiltedTitle[1]} ${spiltedTitle[2]}`;
+    return newTitle;
+  };
 
   return (
     <Container className="d-flex justify-content-center">
@@ -42,6 +40,8 @@ const MyWomensClothing = () => {
             dynamicRout={product.id}
             price={product.price}
             category={product.category}
+            productId={product.id}
+            productData={product}
           />
         ))}
       </Row>

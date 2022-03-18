@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/Link";
 import { Badge, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 //  let activeHomeClass;
 //  switch (router.pathname) {
@@ -15,6 +16,8 @@ import { useRouter } from "next/router";
 
 const MyNav = () => {
   const router = useRouter();
+
+  const state = useSelector((state) => state.cartState);
 
   let activeHomeClass;
   let activeProductClass;
@@ -83,7 +86,7 @@ const MyNav = () => {
             </Link>
             <Link href="/store">
               <a className={activeStoreClass}>
-                Store<Badge className="mx-1">1</Badge>
+                Store<Badge className="mx-1">{state.itemsCounter}</Badge>
               </a>
             </Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
