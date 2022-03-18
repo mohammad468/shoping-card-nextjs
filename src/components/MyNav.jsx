@@ -86,7 +86,8 @@ const MyNav = () => {
             </Link>
             <Link href="/store">
               <a className={activeStoreClass}>
-                Store<Badge className="mx-1">{state.itemsCounter}</Badge>
+                Store
+                <Badge className="mx-1">{state.selectedItems.length}</Badge>
               </a>
             </Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
