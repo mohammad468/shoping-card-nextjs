@@ -70,7 +70,7 @@ const MyNav = () => {
   }
 
   return (
-    <Navbar bg="light" expand="lg" sticky="top">
+    <Navbar className="bg-red-500" expand="lg" sticky="top">
       <Container>
         <Link href="/">
           <a className="navbar-brand fw-bold">Mohseni Shop</a>
