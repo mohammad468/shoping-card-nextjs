@@ -1,86 +1,125 @@
 import React, { useState } from "react";
-import Link from "next/Link";
-import { AiOutlineCaretUp, AiOutlineCaretDown } from "react-icons/ai";
-import { RadioGroup } from "@headlessui/react";
+import { Tab } from "@headlessui/react";
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const MyDropdown = () => {
-  const [show, setShow] = useState(false);
-  const [selected, setSelected] = useState(0);
-
-  const showHandler = (id) => {
-    if (!show) {
-      setShow(true);
-      setSelected(id);
-    } else {
-      setShow(false);
-      setSelected(0);
-    }
-  };
-
-  const hiddenHandler = () => {
-    if (show) {
-      setShow(false);
-      setSelected(0);
-    }
-  };
+  let [categories] = useState({
+    Recent: [
+      {
+        id: 1,
+        title: "Does drinking coffee make you smarter?",
+        date: "5h ago",
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    Popular: [
+      {
+        id: 1,
+        title: "Is tech making coffee better or worse?",
+        date: "Jan 7",
+        commentCount: 29,
+        shareCount: 16,
+      },
+      {
+        id: 2,
+        title: "The most innovative things happening in coffee",
+        date: "Mar 19",
+        commentCount: 24,
+        shareCount: 12,
+      },
+    ],
+    Trending: [
+      {
+        id: 1,
+        title: "Ask Me Anything: 10 answers to your questions about coffee",
+        date: "2d ago",
+        commentCount: 9,
+        shareCount: 5,
+      },
+      {
+        id: 2,
+        title: "The worst advice we've ever heard about coffee",
+        date: "4d ago",
+        commentCount: 1,
+        shareCount: 2,
+      },
+    ],
+  });
 
   return (
-    <div className="flex justify-center items-start h-screen bg-gray-200">
-      <div className="bg-white rounded-xl max-w-md w-full p-2 mt-3">
-        <div
-          className={`w-full flex items-center justify-between rounded-lg p-2 my-2 cursor-pointer ${
-            show && selected == 1
-              ? "ring-1 ring-purple-400 bg-purple-200 text-blue-700"
-              : "bg-purple-100 hover:bg-purple-200 text-blue-700"
-          }`}
-          onClick={() => showHandler(1)}
-        >
-          <h1 className="text-lg font-bold">What is your refund policy?</h1>
-          {/* {show && selected == 1 ? (
-            <AiOutlineCaretUp className="transition-all duration-700" />
-          ) : (
-            <AiOutlineCaretDown className="transition-all duration-700" />
-          )} */}
-          <AiOutlineCaretDown
-            className={`${
-              show && selected == 1
-                ? "transition-all duration-150"
-                : "rotate-180 transition-all duration-150"
-            }`}
-          />
-        </div>
-        <div
-          className={`text-black opacity-50 py-3 px-2 ${
-            show && selected == 1 ? "" : "hidden"
-          }`}
-        >
-          If you're unhappy with your purchase for any reason, email us within
-          90 days and we'll refund you in full, no questions asked.
-        </div>
-        <div
-          onClick={() => showHandler(2)}
-          className={`w-full flex items-center justify-between rounded-lg p-2 my-2 cursor-pointer ${
-            show && selected == 2
-              ? "ring-1 ring-purple-400 bg-purple-200 text-blue-700"
-              : "bg-purple-100 hover:bg-purple-200 text-blue-700"
-          }`}
-        >
-          <h1 className="text-lg font-bold">Do you offer technical support?</h1>
-          <AiOutlineCaretDown
-            className={`${
-              show && selected == 2
-                ? "transition-all duration-150"
-                : "rotate-180 transition-all duration-150"
-            }`}
-          />
-        </div>
-        <div
-          className={`text-black opacity-50 py-3 px-2 ${
-            show && selected == 2 ? "transition-all" : "hidden"
-          }`}
-        >
-          No.
-        </div>
+    <div className="h-screen flex items-center justify-center bg-blue-600">
+      <div className="w-full max-w-md px-2 py-16 sm:px-0">
+        <Tab.Group>
+          <Tab.List className="flex p-1 space-x-1 bg-blue-900/20 rounded-xl">
+            {Object.keys(categories).map((category) => (
+              <Tab
+                key={category}
+                className={({ selected }) =>
+                  classNames(
+                    "w-full py-2.5 text-sm leading-5 font-medium text-blue-700 rounded-lg",
+                    "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60",
+                    selected
+                      ? "bg-white shadow"
+                      : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                  )
+                }
+              >
+                {category}
+              </Tab>
+            ))}
+          </Tab.List>
+          <Tab.Panels className="mt-2">
+            {Object.values(categories).map((posts, idx) => (
+              <Tab.Panel
+                key={idx}
+                className={classNames(
+                  "bg-white rounded-xl p-3",
+                  "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60"
+                )}
+              >
+                <ul>
+                  {posts.map((post) => (
+                    <li
+                      key={post.id}
+                      className="relative p-3 rounded-md hover:bg-coolGray-100"
+                    >
+                      <h3 className="text-sm font-medium leading-5">
+                        {post.title}
+                      </h3>
+
+                      <ul className="flex mt-1 space-x-1 text-xs font-normal leading-4 text-coolGray-500">
+                        <li>{post.date}</li>
+                        <li>&middot;</li>
+                        <li>{post.commentCount} comments</li>
+                        <li>&middot;</li>
+                        <li>{post.shareCount} shares</li>
+                      </ul>
+
+                      <a
+                        href="#"
+                        className={classNames(
+                          "absolute inset-0 rounded-md",
+                          "focus:z-10 focus:outline-none focus:ring-2 ring-blue-400"
+                        )}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </Tab.Panel>
+            ))}
+          </Tab.Panels>
+        </Tab.Group>
       </div>
     </div>
   );
