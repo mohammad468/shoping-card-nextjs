@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 import { Provider } from "react-redux";
 import store from "../redux/store";
