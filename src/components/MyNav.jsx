@@ -66,81 +66,39 @@ const MyNav = () => {
   let activeHomeClass;
   let activeProductClass;
   let activeStoreClass;
-  // let activeProductsMensClothing;
-  // let activeProductsWomenClothing;
-  // let activeProductsJewelery;
-  // let activeProductsElectronics;
 
   if (router.pathname == "/") {
-    activeHomeClass = "text-base font-medium text-gray-900 hover:text-gray-900";
+    activeHomeClass =
+      "text-base font-medium text-slate-800 hover:text-slate-800";
   } else {
-    activeHomeClass = "text-base font-medium text-gray-500 hover:text-gray-900";
+    activeHomeClass =
+      "text-base font-medium text-gray-500 hover:text-slate-800";
   }
 
   if (router.pathname === "/products") {
     activeProductClass =
-      "text-base font-medium text-gray-900 hover:text-gray-900";
+      "text-base font-medium text-slate-800 hover:text-slate-800";
   } else {
     activeProductClass =
-      "text-base font-medium text-gray-500 hover:text-gray-900";
+      "text-base font-medium text-gray-500 hover:text-slate-800";
   }
 
   if (router.pathname == "/store") {
     activeStoreClass =
-      "text-base font-medium text-gray-900 hover:text-gray-900";
+      "text-base font-medium text-slate-800 hover:text-slate-800";
   } else {
     activeStoreClass =
-      "text-base font-medium text-gray-500 hover:text-gray-900";
+      "text-base font-medium text-gray-500 hover:text-slate-800";
   }
 
-  // return (
-  //   <Navbar className="bg-light" expand="lg" sticky="top">
-  //     <Container>
-  //       <Link href="/">
-  //         <a className="navbar-brand fw-bold">Mohseni Shop</a>
-  //       </Link>
-  //       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  //       <Navbar.Collapse id="basic-navbar-nav">
-  //         <Nav className="me-auto">
-  //           <Link href="/">
-  //             <a className={activeHomeClass}>Home</a>
-  //           </Link>
-  //           <Link href="/products">
-  //             <a className={activeProductClass}>Products</a>
-  //           </Link>
-  //           <Link href="/store">
-  //             <a className={activeStoreClass}>
-  //               Store
-  //               <Badge className="mx-1">{state.selectedItems.length}</Badge>
-  //             </a>
-  //           </Link>
-
-  //           <NavDropdown title="Categories" id="basic-nav-dropdown">
-  //             <Link href="/products/mens-clothing">
-  //               <a className={activeProductsMensClothing}>Men's clothing</a>
-  //             </Link>
-  //             <Link href="/products/womens-clothing">
-  //               <a className={activeProductsWomenClothing}>Women's clothing</a>
-  //             </Link>
-  //             <Link href="/products/jewelery">
-  //               <a className={activeProductsJewelery}>Jewelery</a>
-  //             </Link>
-  //             <Link href="/products/electronics">
-  //               <a className={activeProductsElectronics}>Electronics</a>
-  //             </Link>
-  //           </NavDropdown>
-
-  //         </Nav>
-  //       </Navbar.Collapse>
-  //     </Container>
-  //   </Navbar>
-  // );
   return (
     <Popover className="relative bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-6 lg:justify-start lg:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <h1 className="font-bold text-2xl">Mohseni Shop</h1>
+            <h1 className="font-bold text-2xl text-slate-800 cursor-default">
+              Mohseni <span className="text-orange-400">Shop</span>
+            </h1>
           </div>
 
           <div className="-mr-2 -my-2 lg:hidden">
@@ -153,7 +111,7 @@ const MyNav = () => {
           <Popover.Group as="nav" className="hidden lg:flex space-x-10">
             <Link href="/">
               <a className={`${activeHomeClass} flex`}>
-                <HomeIcon className="h-5 w-5 me-1" />
+                <HomeIcon className="h-5 w-5 me-1 " />
                 <span>Home</span>
               </a>
             </Link>
@@ -168,7 +126,9 @@ const MyNav = () => {
                 <ShoppingBagIcon className="h-5 w-5 me-1" />
                 <span>
                   Store
-                  <Badge className="mx-1">{state.selectedItems.length}</Badge>
+                  <Badge className="mx-1 bg-slate-800">
+                    {state.selectedItems.length}
+                  </Badge>
                 </span>
               </a>
             </Link>
@@ -266,13 +226,6 @@ const MyNav = () => {
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
-                <div>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    alt="Workflow"
-                  />
-                </div>
                 <div className="-mr-2">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Close menu</span>
@@ -359,7 +312,7 @@ const MyNav = () => {
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="text-indigo-600 hover:text-indigo-500 mx-2">
                     Sign in
                   </a>
                 </p>
