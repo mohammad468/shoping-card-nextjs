@@ -5,8 +5,8 @@ import MyDropdown from "../components/MyDropdown";
 export default function Home() {
   return (
     <>
-      {/* <MyNav /> */}
-      <MyDropdown />
+      <MyNav />
+      {/* <MyDropdown /> */}
       {/* <h1>homePage</h1>
       <Link href="/products">
         <a>go to products</a>
