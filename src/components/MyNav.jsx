@@ -41,8 +41,7 @@ const resources = [
   },
   {
     name: "Jewelery",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ",
     href: "/products/jewelery",
     icon: CalendarIcon,
   },
