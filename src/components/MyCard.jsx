@@ -1,15 +1,6 @@
 import React from "react";
-import { Button, Card, Badge } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Link from "next/link";
-
-// Actions
-import {
-  addItem,
-  removeItem,
-  increase,
-  decrease,
-} from "../redux/cart/cartAction";
-import { useDispatch, useSelector } from "react-redux";
 
 const MyCard = (props) => {
   let x, y, z;
