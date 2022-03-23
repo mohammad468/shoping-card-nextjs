@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/Link";
-import { Badge, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { Fragment } from "react";
@@ -8,16 +8,10 @@ import { Popover, Transition } from "@headlessui/react";
 import {
   BookmarkAltIcon,
   CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
+  XIcon,
   MenuIcon,
-  PhoneIcon,
-  PlayIcon,
-  RefreshIcon,
   ShieldCheckIcon,
   SupportIcon,
-  ViewGridIcon,
-  XIcon,
   HomeIcon,
   ShoppingCartIcon,
   ShoppingBagIcon,
@@ -60,7 +54,6 @@ function classNames(...classes) {
 
 const MyNav = () => {
   const router = useRouter();
-
   const state = useSelector((state) => state.cartState);
 
   let activeHomeClass;
@@ -312,7 +305,10 @@ const MyNav = () => {
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500 mx-2">
+                  <a
+                    href="#"
+                    className="text-indigo-600 hover:text-indigo-500 mx-2"
+                  >
                     Sign in
                   </a>
                 </p>
