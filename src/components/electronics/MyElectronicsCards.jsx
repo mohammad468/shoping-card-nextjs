@@ -14,9 +14,9 @@ const MyElectronicsCards = () => {
 
   let electronicsProducts = [];
 
-  productsState.products.map((product) => {
-    if (product.category == "electronics") {
-      electronicsProducts.push(product);
+  productsState.products.map((item) => {
+    if (item.category == "electronics") {
+      electronicsProducts.push(item);
     }
   });
 

@@ -13,25 +13,39 @@ import { useDispatch, useSelector } from "react-redux";
 
 const MyCard = (props) => {
   const state = useSelector((state) => state.cartState);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const quantityCount = (state, id) => {
-    const index = state.selectedItems.findIndex((item) => item.id === id);
-    if (index === -1) {
-      return false;
-    } else {
-      return state.selectedItems[index].quantity;
-    }
-  };
+  // const quantityCount = (state, id) => {
+  //   const index = state.selectedItems.findIndex((item) => item.id === id);
+  //   if (index === -1) {
+  //     return false;
+  //   } else {
+  //     return state.selectedItems[index].quantity;
+  //   }
+  // };
 
-  const isInCart = (state, id) => {
-    const result = !!state.selectedItems.find((item) => item.id === id);
-    return result;
-  };
+  // const isInCart = (state, id) => {
+  //   const result = !!state.selectedItems.find((item) => item.id === id);
+  //   return result;
+  // };
+
+  let x, y, z;
+  function separate(Number) {
+    Number += "";
+    Number = Number.replace(",", "");
+    x = Number.split(".");
+    y = x[0];
+    z = x.length > 1 ? "." + x[1] : "";
+    var rgx = /(\d+)(\d{3})/;
+    while (rgx.test(y)) y = y.replace(rgx, "$1" + "," + "$2");
+    return y + z;
+  }
 
   return (
-    <Card style={{ width: "18rem" }} className="mx-3 my-2 p-0 d-flex">
-      <Card.Header>{props.myTitle}</Card.Header>
+    <Card
+      style={{ width: "18rem" }}
+      className="transition-all mx-3 my-2 p-0 d-flex rounded-xl hover:shadow-lg"
+    >
       <Card.Img
         variant="top"
         src={props.image}
@@ -39,39 +53,30 @@ const MyCard = (props) => {
         className="my-2 align-self-center"
       />
       <Card.Body>
-        <Card.Title className="text-center fw-bolder mb-3">{`${props.price} $`}</Card.Title>
-        <Card.Text className="d-flex justify-content-between align-items-center">
+        <div className="flex justify-between items-center">
+          <Card.Title className="text-start text-base capitalize text-gray-400">{`${props.category}`}</Card.Title>
+          <div className="flex">
+            <div className="bg-orange-500 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
+            <div className="bg-red-500 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
+            <div className="bg-blue-500 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
+            <div className="bg-yellow-400 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
+          </div>
+        </div>
+        <Card.Title className="text-start text-xl font-bold capitalize text-slate-700">
           <Link href={`${props.dynamicRout}`}>
-            <a className="text-decoration-none">Go To Details</a>
+            <a className="transition-all text-start text-lg font-bold capitalize text-slate-600 hover:text-slate-800">{`${props.myTitle}`}</a>
           </Link>
-          {quantityCount(state, props.productId) === 1 && (
-            <Button onClick={() => dispatch(removeItem(props.productData))}>
-              Remove
-            </Button>
-          )}
-          {quantityCount(state, props.productId) > 1 && (
-            <Button onClick={() => dispatch(decrease(props.productData))}>
-              -
-            </Button>
-          )}
-          {quantityCount(state, props.productData.id) > 0 && (
-            <span>{quantityCount(state, props.productData.id)}</span>
-          )}
-          {isInCart(state, props.productData.id) ? (
-            <Button onClick={() => dispatch(increase(props.productData))}>
-              +
-            </Button>
-          ) : (
-            <Button onClick={() => dispatch(addItem(props.productData))}>
-              Add to Cart
-            </Button>
-          )}
-        </Card.Text>
+        </Card.Title>
+        <Card.Title className="text-start text-lg font-semibold capitalize text-orange-700 cursor-default">{`${separate(
+          props.price * 30000
+        )} Toman`}</Card.Title>
+        <hr className="mx-4 my-2 text-gray-400" />
+        <Link href={`${props.dynamicRout}`}>
+          <a className="flex justify-center transition-all font-bold text-lg w-full text-center text-decoration-none text-orange-500 hover:text-orange-700">
+            View and order
+          </a>
+        </Link>
       </Card.Body>
-
-      <Card.Footer>
-        <Badge bg="secondary">{props.category}</Badge>
-      </Card.Footer>
     </Card>
   );
 };
