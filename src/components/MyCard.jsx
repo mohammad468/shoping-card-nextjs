@@ -12,23 +12,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 const MyCard = (props) => {
-  const state = useSelector((state) => state.cartState);
-  // const dispatch = useDispatch();
-
-  // const quantityCount = (state, id) => {
-  //   const index = state.selectedItems.findIndex((item) => item.id === id);
-  //   if (index === -1) {
-  //     return false;
-  //   } else {
-  //     return state.selectedItems[index].quantity;
-  //   }
-  // };
-
-  // const isInCart = (state, id) => {
-  //   const result = !!state.selectedItems.find((item) => item.id === id);
-  //   return result;
-  // };
-
   let x, y, z;
   function separate(Number) {
     Number += "";
