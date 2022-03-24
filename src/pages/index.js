@@ -6,6 +6,9 @@ export default function Home() {
   return (
     <>
       <MyNav />
+      <h1 className="text-center my-5 text-9xl font-black antialiased tracking-tighter">
+        HomePage
+      </h1>
       {/* <MyDropdown /> */}
       {/* <h1>homePage</h1>
       <Link href="/products">

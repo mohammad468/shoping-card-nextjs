@@ -28,7 +28,7 @@ const MyCard = (props) => {
       />
       <Card.Body>
         <div className="flex justify-between items-center">
-          <Card.Title className="text-start text-base capitalize text-gray-400">{`${props.category}`}</Card.Title>
+          <Card.Title className="text-start text-base capitalize text-gray-400 antialiased">{`${props.category}`}</Card.Title>
           <div className="flex">
             <div className="bg-orange-500 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
             <div className="bg-red-500 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
@@ -36,17 +36,17 @@ const MyCard = (props) => {
             <div className="bg-yellow-400 rounded-full w-4 h-4 ring-2 ring-white cursor-pointer"></div>
           </div>
         </div>
-        <Card.Title className="text-start text-xl font-bold capitalize text-slate-700">
+        <Card.Title className="text-start text-xl font-bold capitalize text-slate-700 antialiased">
           <Link href={`${props.dynamicRout}`}>
-            <a className="transition-all text-start text-lg font-bold capitalize text-slate-600 hover:text-slate-800">{`${props.myTitle}`}</a>
+            <a className="transition-all text-start text-lg font-bold capitalize text-slate-600 hover:text-slate-800 antialiased">{`${props.myTitle}`}</a>
           </Link>
         </Card.Title>
-        <Card.Title className="text-start text-lg font-semibold capitalize text-orange-700 cursor-default">{`${separate(
+        <Card.Title className="text-start text-lg font-semibold capitalize text-orange-700 cursor-default antialiased">{`${separate(
           props.price * 30000
         )} Toman`}</Card.Title>
         <hr className="mx-4 my-2 text-gray-400" />
         <Link href={`${props.dynamicRout}`}>
-          <a className="flex justify-center transition-all font-bold text-lg w-full text-center text-decoration-none text-orange-500 hover:text-orange-700">
+          <a className="flex justify-center transition-all font-bold text-lg w-full text-center text-decoration-none text-orange-500 hover:text-orange-700 antialiased">
             View and order
           </a>
         </Link>

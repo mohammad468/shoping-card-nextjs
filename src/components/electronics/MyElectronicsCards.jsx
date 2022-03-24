@@ -30,8 +30,8 @@ const MyElectronicsCards = () => {
   };
 
   return (
-    <Container className="d-flex justify-content-center">
-      <Row className="d-flex justify-content-start mt-4">
+    <Container className="d-flex justify-center">
+      <Row className="flex lg:justify-start justify-center mt-4">
         {electronicsProducts.map((product) => (
           <MyCard
             key={product.id}

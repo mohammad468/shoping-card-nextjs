@@ -31,7 +31,7 @@ const MyWomensClothing = () => {
 
   return (
     <Container className="d-flex justify-content-center">
-      <Row className="d-flex justify-content-start mt-4">
+      <Row className="flex lg:justify-start justify-center mt-4">
         {MensClothingProducts.map((product) => (
           <MyCard
             key={product.id}
