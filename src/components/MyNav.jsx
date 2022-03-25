@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import { Badge } from "react-bootstrap";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
