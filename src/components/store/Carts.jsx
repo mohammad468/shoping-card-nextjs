@@ -30,7 +30,7 @@ const Carts = () => {
       <h1>{state.total}</h1>
       <h1>{state.checkout}</h1>
       {state.selectedItems.map((product) => (
-        <h1>{product.id}</h1>
+        <h1 key={product.id}>{product.id}</h1>
       ))}
       {/* {quantityCount(state, props.productId) === 1 && (
         <Button onClick={() => dispatch(removeItem(props.productData))}>

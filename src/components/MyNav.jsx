@@ -271,13 +271,13 @@ const MyNav = () => {
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <Link href="/products/mens-clothing">
                   <a className="text-base font-medium text-gray-900 hover:text-gray-700">
-                    Men's clothing
+                    Mens clothing
                   </a>
                 </Link>
 
                 <Link href="/products/womens-clothing">
                   <a className="text-base font-medium text-gray-900 hover:text-gray-700">
-                    Women's clothing
+                    Womens clothing
                   </a>
                 </Link>
 
